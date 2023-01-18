@@ -6,9 +6,11 @@ export interface User {
     nickname?: string;
     email?: string;
     phone?: string;
+    birth?: string;
     naverId? : string;
     kakaoId? : string;
     googleId? : string;
     provider? : string;
     admin? : boolean;
+    refreshToken? : string;
 }

@@ -15,7 +15,9 @@ export class Users extends Model{
     public googleId! : string;
     public provider! : string;
     public phone! : string;
+    public birth! : string;
     public admin! : boolean;
+    public refreshToken! : string;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
 
@@ -67,10 +69,18 @@ Users.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        birth: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         admin: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
+        },
+        refreshToken: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         createdAt: {
             type: DataTypes.DATE,

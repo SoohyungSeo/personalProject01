@@ -1,16 +1,13 @@
 import { User } from '../interface/user';
-import userRepository from '../repositories/user';
+import UserRepository from '../repositories/user';
 
-export default {
-    signup: async({id, password, confirmPassword, nickname, email, phone}: User) => {
-        const signupUser = {
-            id: id,
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword,
-            nickname: nickname,
-            phone: phone            
-        }
-        await userRepository.signup(signupUser);
+class UserService {
+    public userRepository = new UserRepository();
+
+    signup = async({id, password, confirmPassword, nickname, email, phone, birth} : User) => {
+        const signUp = await this.userRepository.signup({id, password, confirmPassword, nickname, email, phone, birth});
+        return signUp
     }
 }
+
+export default UserService;

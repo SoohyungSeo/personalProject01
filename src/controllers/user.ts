@@ -1,11 +1,15 @@
 import { Request, Response, NextFunction } from "express";
-import userService from '../services/user';
+import UserService from '../services/user';
 import { User } from '../interface/user';
 
-export default {
-    signup: async(req: Request, res:Response, next: NextFunction) => {
-        const {id, password, confirmPassword, nickname, email, phone }: User = req.body
-        await userService.signup({id, password, confirmPassword, nickname, email, phone});
-        res.status(201).json({message: '회원가입을 성공하였습니다.'})
+class UserController {
+    public userService = new UserService();
+
+    signup = async(req: Request, res: Response, next: NextFunction) => {
+        const {id, password, confirmPassword, nickname, email, phone, birth} : User = req.body;
+        await this.userService.signup({id,password, confirmPassword, nickname, email, phone, birth});
+        res.status(201).json({message:"회원가입 완료"})
     }
 }
+
+export default UserController;

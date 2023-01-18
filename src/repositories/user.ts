@@ -1,8 +1,13 @@
 import Users from "../models/user";
 import { User } from '../interface/user';
 
-export default {
-    signup: async({id, password, nickname, email, phone}: User) => {
-        await Users.create({id, password, nickname, email, phone})
+class UserRepository{
+
+    signup = async({id, password, nickname, email, phone, birth} : User) => {
+        const signUp = await Users.create({id, password, nickname, email, phone, birth})
+        return signUp
     }
 }
+
+
+export default UserRepository

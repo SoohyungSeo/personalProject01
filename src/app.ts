@@ -9,11 +9,6 @@ const port = 3000;
 app.use(express.json());
 app.use('/', Router)
 
-
-app.get('/', (req:Request, res:Response) => {
-    res.send('Side Project')
-});
-
 app.listen(port, async() => {
     console.log('Server is Open 3000 port');
     await sequelize.authenticate()
