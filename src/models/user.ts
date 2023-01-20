@@ -80,7 +80,7 @@ Users.init(
         },
         refreshToken: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         createdAt: {
             type: DataTypes.DATE,

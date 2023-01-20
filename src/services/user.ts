@@ -8,6 +8,11 @@ class UserService {
         const signUp = await this.userRepository.signup({id, password, confirmPassword, nickname, email, phone, birth});
         return signUp
     }
+
+    login = async({id,password} : User )=>{
+        const loginUser = await this.userRepository.login({id,password})
+        return loginUser;
+    }
 }
 
 export default UserService;
